@@ -6,11 +6,14 @@ const doc = {
     title: 'Task Manager API',
     description: 'API for managing tasks'
   },
-  host: 'localhost:3000',  // Will be changed once deployed on Render
-  schemes: ['http'],
+  host: 'localhost:3000',  // Use your deployed Render URL when deploying
+  schemes: ['http'],        // Update to 'https' when using HTTPS in production
 };
 
 const outputFile = './swagger-output.json';
-const endpointsFiles = ['./routes/tasks.js'];
+const endpointsFiles = ['./routes/tasks.js'];  // Adjust if you have other routes
 
-swaggerAutogen(outputFile, endpointsFiles);
+// Generate the swagger-output.json file
+swaggerAutogen(outputFile, endpointsFiles).then(() => {
+  console.log('Swagger file generated');
+});
